@@ -1,3 +1,1 @@
-"# CalCounter" 
-"# CalCounter" 
-"# CalCount" 
+Hey this isnt my first commit for this project if u look at my other repository you can see my first commit called CalTrack, the reason its seperate if because everytime after my first commit when i tried to commit again it merged my code and destroyed it adn had to restart all over several times, if you see this i would appreciate it if you looked at my first commit asproof so you dont think this is my first commit thank you
