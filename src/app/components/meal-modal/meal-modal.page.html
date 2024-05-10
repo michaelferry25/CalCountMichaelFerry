@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-toolbar>
+        <!-- Button on the left of the toolbar for going back, typically to a previous view -->
+        <ion-buttons slot="start">
+            <ion-back-button (click)="dismissModal()"></ion-back-button>
+        </ion-buttons>
+        <!-- Title in the center of the toolbar, dynamically displays the name of the meal -->
+        <ion-title>{{ meal.name }}</ion-title>
+        <!-- Button on the right of the toolbar to close the current view/modal -->
+        <ion-buttons slot="end">
+            <ion-button (click)="dismissModal()">
+                Close
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<!-- Main content-->
+<ion-content>
+    <ion-card>
+        <!-- Card header displaying the meal's name -->
+        <ion-card-header>{{ meal.name }}</ion-card-header>
+        <!-- Card content area including image and description of the meal -->
+        <ion-card-content>
+            <!-- Image dynamically linked to the source file of the meal's image -->
+            <img [src]="meal.imgSrc">
+            <!-- Paragraph displaying the description of the meal -->
+            <p>{{ meal.description }}</p>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

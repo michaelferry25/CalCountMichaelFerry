@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+       <ion-img src="assets/CalTrackLogoFinal.png" style="height: 60px; width: auto;"></ion-img>
+    </ion-buttons>
+    <ion-title style="padding-left: 10px;" style="padding-right: 10px;">
+      Daily Intake
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="calcDailyCals()" (reset)="resetResults()">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Age</ion-label>
+        <ion-input type="number" [(ngModel)]="age" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Sex</ion-label>
+        <ion-segment [(ngModel)]="sex">
+          <ion-segment-button value="male">
+            <ion-label>Male</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="female">
+            <ion-label>Female</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Weight (lbs)</ion-label>
+        <ion-input type="number" [(ngModel)]="weight" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Height (inches)</ion-label>
+        <ion-input type="number" [(ngModel)]="height" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Activity Level</ion-label>
+        <ion-select [(ngModel)]="activityLevel" required>
+          <ion-select-option value="1.2">Little to no exercise</ion-select-option>
+          <ion-select-option value="1.375">Light exercise (1-3 days per week)</ion-select-option>
+          <ion-select-option value="1.55">Moderate exercise (3-5 days per week)</ion-select-option>
+          <ion-select-option value="1.725">Heavy exercise (6-7 days per week)</ion-select-option>
+          <ion-select-option value="1.9">Very heavy exercise (twice per day, extra heavy workouts)</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Goal</ion-label>
+        <ion-select [(ngModel)]="goal" required>
+          <ion-select-option value="-1000">Lose 2 Pounds per Week</ion-select-option>
+          <!-- Additional options -->
+        </ion-select>
+      </ion-item>
+      <ion-button expand="full" type="submit" color="primary">Calculate</ion-button>
+      <ion-button expand="full" type="reset" color="medium">Reset</ion-button>
+    </ion-list>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Results</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{ results }}
+        {{ mResults }}
+      </ion-card-content>
+    </ion-card>
+  </form>
+</ion-content>
+
+
+

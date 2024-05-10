@@ -1,0 +1,7 @@
+{
+  "name": "CalCounter",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

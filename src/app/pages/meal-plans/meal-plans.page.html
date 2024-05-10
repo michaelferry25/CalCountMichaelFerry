@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- Displaying the app's logo -->
+      <ion-img src="assets/CalTrackLogoFinal.png" style="height: 60px; width: auto;"></ion-img>
+    </ion-buttons>
+    <!-- Title of the page, with padding -->
+    <ion-title style="padding-left: 10px; padding-right: 10px;">
+      Meal Plans 
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Main content -->
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col offset-lg="0" size-xs="12" size-sm="4" size-lg="4" *ngFor="let plan of mealPlans">
+        <!-- Card component to display every meal plan -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>{{ plan.name }}</ion-card-title> <!-- Dynamic binding of meal plan name -->
+          </ion-card-header>
+          <ion-card-content>
+            <!-- Image source, dynamic linked-->
+            <img [src]="plan.imgSrc">
+            <!-- Paragraphto show description of the meal plan -->
+            <p>{{ plan.description }}</p>
+            <!-- Button to trigger more detailed view of the meal plan -->
+            <ion-button (click)="viewMeal(plan)">Learn more</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

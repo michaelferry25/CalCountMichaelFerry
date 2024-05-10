@@ -1,0 +1,30 @@
+ion-content {
+    --background: var(--ion-color-light);
+  
+    .page-title {
+      text-align: center;
+      color: var(--ion-color-primary);
+      margin-top: 20px;
+    }
+  
+    .container {
+      padding: 16px;
+    }
+  
+    .content-text {
+      padding: 8px 16px;
+      background-color: var(--ion-color-light);
+      color: var(--ion-color-dark);
+      border-radius: 8px;
+    }
+  
+    ion-card {
+      --background: var(--ion-color-primary);
+      color: var(--ion-color-light);
+    }
+  
+    ion-icon {
+      color: var(--ion-color-primary-contrast);
+    }
+  }
+  

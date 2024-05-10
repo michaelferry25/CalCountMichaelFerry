@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- Container for image buttons, aligned at the start of the toolbar -->
+    <ion-buttons slot="start">
+      <!-- Logo image displayed in the toolbar -->
+      <ion-img src="assets/CalTrackLogoFinal.png" style="height: 60px; width: auto;"></ion-img>
+    </ion-buttons>
+    <!-- Title of the page, with padding applied on both sides -->
+    <ion-title style="padding-left: 10px; padding-right: 10px;">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Main content-->
+<ion-content class="ion-padding">
+  <ion-grid>
+    <!-- Single row for the welcome message -->
+    <ion-row>
+      <ion-col size="12" class="banner">
+        <h1>Welcome back! We're so happy to see you again!</h1> 
+      </ion-col>
+    </ion-row>
+
+    <!-- Row for the recently added meals section -->
+    <ion-row>
+      <ion-col size-lg="8" size-sm="12" size-md="12">
+        <ion-card routerLink="/log-meal">
+
+          <!-- Card header with title -->
+          <ion-card-header>
+            <ion-card-title>Recently Added Meal</ion-card-title>
+          </ion-card-header>
+          <!-- Card content containing meal details -->
+          <ion-card-content>
+            <!-- Row for meal headers -->
+            <ion-row>
+              <ion-col size-lg="1.5" size-sm="4" size-md="12"><strong>Meal</strong></ion-col>
+              <ion-col size-lg="1.5" size-sm="4" size-md="12"><strong>Calories</strong></ion-col>
+              <ion-col size-lg="1.5" size-sm="4" size-md="12"><strong>Protein (g)</strong></ion-col>
+              <ion-col size-lg="1.5" size-sm="4" size-md="12"><strong>Carbs (g)</strong></ion-col>
+              <ion-col size-lg="1.5" size-sm="4" size-md="12"><strong>Fats (g)</strong></ion-col>
+              <ion-col size-lg="1.5" size-sm="4" size-md="12"><strong>Sugars (g)</strong></ion-col>
+            </ion-row>
+            <!-- Row for displaying the actual meal data -->
+            <ion-row>
+              <ion-col size-lg="1.5" size-sm="4" size-md="12">{{ recentMeal.name }}</ion-col>
+              <ion-col size-lg="1.5" size-sm="4" size-md="12">{{ recentMeal.calories }}</ion-col>
+              <ion-col size-lg="1.5" size-sm="4" size-md="12">{{ recentMeal.protein }}</ion-col>
+              <ion-col size-lg="1.5" size-sm="4" size-md="12">{{ recentMeal.carbs }}</ion-col>
+              <ion-col size-lg="1.5" size-sm="4" size-md="12">{{ recentMeal.fats }}</ion-col>
+              <ion-col size-lg="1.5" size-sm="4" size-md="12">{{ recentMeal.sugars }}</ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- Column for displaying the  daily motivation -->
+      <ion-col size="12" size-lg="4">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Daily Motivation</ion-card-title>
+          </ion-card-header>
+          <!-- content with motivational quote -->
+          <ion-card-content>
+            {{ dailyMotivation }}
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

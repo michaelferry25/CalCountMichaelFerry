@@ -1,0 +1,124 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- Application logo displayed in the toolbar -->
+      <ion-img src="assets/CalTrackLogoFinal.png" style="height: 60px; width: auto;"></ion-img>
+    </ion-buttons>
+    <ion-title style="padding-left: 10px; padding-right: 10px;">
+      Meal Logger <!-- Page title -->
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Main content area -->
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-lg="8" size-sm="12" size-md="12">
+        <ion-card>
+          <!-- form title -->
+          <ion-card-header>
+            <ion-card-title>Log Your Meal</ion-card-title>
+          </ion-card-header>
+          <!-- Card content containing form fields -->
+          <ion-card-content>
+            <form (ngSubmit)="submitMeal()">
+              <!-- the input fields-->
+              <ion-item>
+                <ion-label position="floating">Meal Name</ion-label>
+                <ion-input type="text" [(ngModel)]="meal.name" name="name" required></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Calories</ion-label>
+                <ion-input type="number" [(ngModel)]="meal.calories" name="calories" required></ion-input>
+              </ion-item>
+              <!-- the additional inputs -->
+              <ion-item>
+                <ion-label position="floating">Protein (g)</ion-label>
+                <ion-input type="number" [(ngModel)]="meal.protein" name="protein"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Carbohydrates (g)</ion-label>
+                <ion-input type="number" [(ngModel)]="meal.carbs" name="carbs"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Fats (g)</ion-label>
+                <ion-input type="number" [(ngModel)]="meal.fats" name="fats"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Sugars (g)</ion-label>
+                <ion-input type="number" [(ngModel)]="meal.sugars" name="sugars"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Description</ion-label>
+                <ion-textarea [(ngModel)]="meal.description" name="description"></ion-textarea>
+              </ion-item>
+              <!-- Submission buttons -->
+              <ion-button color="warning" expand="block" (click)="addToFavorites(meal)">
+                Add to Favorites
+              </ion-button>
+              <ion-button type="submit" expand="block" color="primary">Log Meal</ion-button>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <!-- Column for favorite meals -->
+      <ion-col size-lg="4">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Favorites</ion-card-title>
+          </ion-card-header>
+          <!-- List of favorite meals -->
+          <ion-card-content>
+            <ion-list>
+              <ion-item *ngFor="let meal of favoriteMeals" lines="none">
+                <ion-label>
+                  {{ meal.name }} - {{ meal.calories }} Calories
+                </ion-label>
+                <ion-button fill="clear" size="small" color="dark">
+                  Add to Recent
+                </ion-button>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <!-- Row for recently tracked meals -->
+    <ion-row>
+      <ion-col size="12">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Recently Tracked Meals</ion-card-title>
+          </ion-card-header>
+          <ion-list>
+            <ion-grid>
+              <ion-row>
+                <!-- the headers for meal details -->
+                <ion-col size-lg="1.5" size-sm="4" size-md="12"><strong>Meal</strong></ion-col>
+                <ion-col size-lg="1.5" size-sm="4" size-md="12"><strong>Calories</strong></ion-col>
+                <ion-col size-lg="1.5" size-sm="4" size-md="12"><strong>Protein (g)</strong></ion-col>
+                <ion-col size-lg="1.5" size-sm="4" size-md="12"><strong>Carbs (g)</strong></ion-col>
+                <ion-col size-lg="1.5" size-sm="4" size-md="12"><strong>Fats (g)</strong></ion-col>
+                <ion-col size-lg="1.5" size-sm="4" size-md="12"><strong>Sugars (g)</strong></ion-col>
+              </ion-row>
+              <!-- the display of details for each recently tracked meal -->
+              <ion-row *ngFor="let meal of recentMeals; let i = index">
+                <ion-col size-lg="1.5" size-sm="4" size-md="12">{{ meal.name }}</ion-col>
+                <ion-col size-lg="1.5" size-sm="4" size-md="12">{{ meal.calories }}</ion-col>
+                <ion-col size-lg="1.5" size-sm="4" size-md="12">{{ meal.protein }}</ion-col>
+                <ion-col size-lg="1.5" size-sm="4" size-md="12">{{ meal.carbs }}</ion-col>
+                <ion-col size-lg="1.5" size-sm="4" size-md="12">{{ meal.fats }}</ion-col>
+                <ion-col size-lg="1.5" size-sm="4" size-md="12">{{ meal.sugars }}</ion-col>
+                <!--delete button-->
+                <ion-button fill="clear" color="danger" (click)="confirmDelete(i)">
+                  Delete
+                </ion-button>
+              </ion-row>
+            </ion-grid>
+          </ion-list>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
